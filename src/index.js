@@ -1,5 +1,6 @@
 import http from 'http'
-console.log('http -->', http)
-const test = 'Hola mundo!, adios mundo!'
+import api from './api'
 
-console.log('--->', test === 1)
+const server = http.createServer(api())
+
+server.listen(3000, () => console.log('Server running on 3000'))
