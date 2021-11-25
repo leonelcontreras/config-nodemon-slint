@@ -1,6 +1,10 @@
 import http from 'http'
 import api from './api'
+import dotenv from 'dotenv'
+
+dotenv.config()
+const { API_PORT } = process.env
 
 const server = http.createServer(api())
 
-server.listen(3000, () => console.log('Server running on 3000'))
+server.listen(API_PORT, () => console.log(`Server running on ${API_PORT}`))
