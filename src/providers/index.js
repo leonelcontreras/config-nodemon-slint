@@ -1,1 +1,1 @@
-export { default as setupTranslates } from './translate.provider'
+export { default as setupTranslate } from './translate.provider'

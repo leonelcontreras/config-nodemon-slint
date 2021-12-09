@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import path from 'path'
 import { setupTranslate } from './providers'
 
+console.log('setupTranslate -->', setupTranslate)
+
 dotenv.config()
 const { API_PORT, TRANSLATE_DEFAULT_LOCALE } = process.env
 const directory = path.join(__dirname, '../assets/locales')
