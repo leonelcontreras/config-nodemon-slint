@@ -1,4 +1,4 @@
 {
-  "api.message": "Hola mundo!",
-  "api.not_found": "Not Found XD"
+  "test": "Hola mundo!",
+  "api.not-found": "Not Found  XD"
 }
