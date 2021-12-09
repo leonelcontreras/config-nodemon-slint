@@ -1,10 +1,10 @@
 import * as controllers from '../controllers'
 
-const Routes = ({ router }) => {
+const Routes = ({ router, tryCatch }) => {
   let controller
 
   for (controller in controllers) {
-    controllers[controller]({ router })
+    controllers[controller]({ router, tryCatch })
   }
 
   return router
