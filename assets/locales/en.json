@@ -1,4 +1,5 @@
 {
   "test": "Hola mundo!",
-  "api.not-found": "Not Found  XD"
+  "api.not-found": "Not Found  XD",
+  "api.error": "An error occurs"
 }

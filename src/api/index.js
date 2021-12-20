@@ -8,20 +8,21 @@ const api = () => {
   const app = express()
   const router = express.Router()
   const routes = Routes({ router, tryCatch: TryCatchMiddleware })
-  const { API_HTTP_CODE_NOT_FOUND, STATUS_CODE_SERVER_ERROR } = process.env
+  const { HTTP_CODE_NOT_FOUND, HTTP_CODE_SERVER_ERROR } = process.env
 
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.use('/api/v1', routes)
-  app.use((request, response) => response.status(404).send({
-    code: Number(API_HTTP_CODE_NOT_FOUND),
+  app.use((request, response) => response.status(HTTP_CODE_NOT_FOUND).send({
+    code: Number(HTTP_CODE_NOT_FOUND),
     message: i18n.__('api.not-found')
   }))
-
+  
   app.use((error, request, response, next) => {
-    console.log('Error -->', error.stack)
-    return response.status(STATUS_CODE_SERVER_ERROR).send({
-      error: 'Something wrong happend, please try again!'
+    console.log('error -->', error)
+    response.status(HTTP_CODE_SERVER_ERROR).send({
+      code: Number(HTTP_CODE_SERVER_ERROR),
+      message: i18n.__('api.error')
     })
   })
 
