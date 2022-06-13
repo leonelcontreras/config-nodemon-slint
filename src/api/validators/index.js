@@ -1,1 +1,1 @@
-export { userValidator } from './user.validator'
+export { userValidator } from './user.validator-s'
