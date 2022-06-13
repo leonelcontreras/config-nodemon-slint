@@ -1,17 +1,14 @@
 
-import { UserService, RoleService } from '../services'
+import { userValidator } from '../validators'
 
-const UserController = ({ router, tryCatch }) => {
-  const userService = UserService()
-  const roleService = RoleService()
+const UserController = ({ router, tryCatch, validator }) => {
+  router.post('/user', userValidator, validator, tryCatch((request, response) => {
+    const { name, email } = request.body
 
-  router.get('/user', tryCatch((request, response) => {
-    const { id } = request.query
-    const { name } = userService.getUser({ id })
-    const roles = roleService.getRole({ id })
-    console.log(name, roles)
-
-    throw new Error()
+    return response.send({
+      name,
+      email
+    })
   }))
 }
 
